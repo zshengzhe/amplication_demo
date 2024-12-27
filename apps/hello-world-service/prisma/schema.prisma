@@ -1,0 +1,16 @@
+datasource db {
+  provider = "mysql"
+  url      = env("DB_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model HelloMessageEntity {
+  createdAt DateTime @default(now())
+  id        String   @id @default(cuid())
+  message   String
+  name      String
+  updatedAt DateTime @updatedAt
+}
